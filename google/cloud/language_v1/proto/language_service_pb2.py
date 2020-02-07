@@ -2944,9 +2944,9 @@ Entity = _reflection.GeneratedProtocolMessageType(
         ),
         DESCRIPTOR=_ENTITY,
         __module__="google.cloud.language_v1.proto.language_service_pb2",
-        __doc__="""Represents a phrase in the text that is a known entity,
-  such as a person, an organization, or location. The API associates
-  information, such as salience and mentions, with entities.
+        __doc__="""Represents a phrase in the text that is a known entity, such as a
+  person, an organization, or location. The API associates information,
+  such as salience and mentions, with entities.
   
   
   Attributes:
