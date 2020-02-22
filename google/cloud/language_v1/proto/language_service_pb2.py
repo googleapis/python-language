@@ -2988,8 +2988,7 @@ Token = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_TOKEN,
         __module__="google.cloud.language_v1.proto.language_service_pb2",
-        __doc__="""Represents the smallest syntactic building block of the
-  text.
+        __doc__="""Represents the smallest syntactic building block of the text.
   
   
   Attributes:
