@@ -3402,9 +3402,9 @@ AnnotateTextRequest = _reflection.GeneratedProtocolMessageType(
             dict(
                 DESCRIPTOR=_ANNOTATETEXTREQUEST_FEATURES,
                 __module__="google.cloud.language_v1beta2.proto.language_service_pb2",
-                __doc__="""All available features for sentiment, syntax, and semantic
-    analysis. Setting each one to true will enable that specific analysis
-    for the input. Next ID: 10
+                __doc__="""All available features for sentiment, syntax, and semantic analysis.
+    Setting each one to true will enable that specific analysis for the
+    input. Next ID: 10
     
     
     Attributes:
