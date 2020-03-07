@@ -3107,8 +3107,8 @@ EntityMention = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_ENTITYMENTION,
         __module__="google.cloud.language_v1.proto.language_service_pb2",
-        __doc__="""Represents a mention for an entity in the text. Currently,
-  proper noun mentions are supported.
+        __doc__="""Represents a mention for an entity in the text. Currently, proper noun
+  mentions are supported.
   
   
   Attributes:
