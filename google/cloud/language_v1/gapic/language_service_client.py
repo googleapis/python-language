@@ -322,8 +322,21 @@ class LanguageServiceClient(object):
         metadata=None,
     ):
         """
-        Finds entities, similar to ``AnalyzeEntities`` in the text and analyzes
-        sentiment associated with each entity and its mentions.
+        Address The metadata identifies the street number and locality plus
+        whichever additional elements appear in the text:
+
+        .. raw:: html
+
+            <li><code>street_number</code> &ndash; street number</li>
+            <li><code>locality</code> &ndash; city or town</li>
+            <li><code>street_name</code> &ndash; street/route name, if detected</li>
+            <li><code>postal_code</code> &ndash; postal code, if detected</li>
+            <li><code>country</code> &ndash; country, if detected</li>
+            <li><code>broad_region</code> &ndash; administrative area, such as the
+            state, if detected</li> <li><code>narrow_region</code> &ndash; smaller
+            administrative area, such as county, if detected</li>
+            <li><code>sublocality</code> &ndash; used in Asian addresses to demark a
+            district within a city, if detected</li></ul>
 
         Example:
             >>> from google.cloud import language_v1

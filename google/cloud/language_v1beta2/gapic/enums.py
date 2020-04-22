@@ -21,24 +21,59 @@ import enum
 
 class EncodingType(enum.IntEnum):
     """
-    Represents the text encoding that the caller uses to process the output.
-    Providing an ``EncodingType`` is recommended because the API provides
-    the beginning offsets for various outputs, such as tokens and mentions,
-    and languages that natively use different text encodings may access
-    offsets differently.
+    javanano_as_lite
 
     Attributes:
-      NONE (int): If ``EncodingType`` is not specified, encoding-dependent information
-      (such as ``begin_offset``) will be set at ``-1``.
-      UTF8 (int): Encoding-dependent information (such as ``begin_offset``) is calculated
-      based on the UTF-8 encoding of the input. C++ and Go are examples of
-      languages that use this encoding natively.
-      UTF16 (int): Encoding-dependent information (such as ``begin_offset``) is calculated
-      based on the UTF-16 encoding of the input. Java and JavaScript are
-      examples of languages that use this encoding natively.
-      UTF32 (int): Encoding-dependent information (such as ``begin_offset``) is calculated
-      based on the UTF-32 encoding of the input. Python is an example of a
-      language that uses this encoding natively.
+      NONE (int): The language of the text, which will be the same as the language
+      specified in the request or, if not specified, the
+      automatically-detected language. See ``Document.language`` field for
+      more details.
+      UTF8 (int): Optional. The relative resource name pattern associated with this
+      resource type. The DNS prefix of the full resource name shouldn't be
+      specified here.
+
+      The path pattern must follow the syntax, which aligns with HTTP binding
+      syntax:
+
+      ::
+
+          Template = Segment { "/" Segment } ;
+          Segment = LITERAL | Variable ;
+          Variable = "{" LITERAL "}" ;
+
+      Examples:
+
+      ::
+
+          - "projects/{project}/topics/{topic}"
+          - "projects/{project}/knowledgeBases/{knowledge_base}"
+
+      The components in braces correspond to the IDs for each resource in the
+      hierarchy. It is expected that, if multiple patterns are provided, the
+      same component name (e.g. "project") refers to IDs of the same type of
+      resource.
+      UTF16 (int): The salience score associated with the entity in the [0, 1.0] range.
+
+      The salience score for an entity provides information about the
+      importance or centrality of that entity to the entire document text.
+      Scores closer to 0 are less salient, while scores closer to 1.0 are
+      highly salient.
+      UTF32 (int): Identifies which part of the FileDescriptorProto was defined at this
+      location.
+
+      Each element is a field number or an index. They form a path from the
+      root FileDescriptorProto to the place where the definition. For example,
+      this path: [ 4, 3, 2, 7, 1 ] refers to: file.message_type(3) // 4, 3
+      .field(7) // 2, 7 .name() // 1 This is because
+      FileDescriptorProto.message_type has field number 4: repeated
+      DescriptorProto message_type = 4; and DescriptorProto.field has field
+      number 2: repeated FieldDescriptorProto field = 2; and
+      FieldDescriptorProto.name has field number 1: optional string name = 1;
+
+      Thus, the above path gives the location of a field name. If we removed
+      the last element: [ 4, 3, 2, 7 ] this path refers to the whole field
+      declaration (from the beginning of the label to the terminating
+      semicolon).
     """
 
     NONE = 0
@@ -242,10 +277,34 @@ class Document(object):
 class Entity(object):
     class Type(enum.IntEnum):
         """
-        The type of the entity. For most entity types, the associated metadata
-        is a Wikipedia URL (``wikipedia_url``) and Knowledge Graph MID
-        (``mid``). The table below lists the associated fields for entities that
-        have different metadata.
+        Should this field be parsed lazily? Lazy applies only to
+        message-type fields. It means that when the outer message is initially
+        parsed, the inner message's contents will not be parsed but instead
+        stored in encoded form. The inner message will actually be parsed when
+        it is first accessed.
+
+        This is only a hint. Implementations are free to choose whether to use
+        eager or lazy parsing regardless of the value of this option. However,
+        setting this option true suggests that the protocol author believes that
+        using lazy parsing on this field is worth the additional bookkeeping
+        overhead typically needed to implement it.
+
+        This option does not affect the public interface of any generated code;
+        all method signatures remain the same. Furthermore, thread-safety of the
+        interface is not affected by this option; const methods remain safe to
+        call from multiple threads concurrently, while non-const methods
+        continue to require exclusive access.
+
+        Note that implementations may choose not to check required fields within
+        a lazy sub-message. That is, calling IsInitialized() on the outer
+        message may return true even if the inner message has missing required
+        fields. This is necessary because otherwise the inner message would have
+        to be parsed in order to perform the check, defeating the purpose of
+        lazy parsing. An implementation which chooses not to check required
+        fields must be consistent about it. That is, for any particular
+        sub-message, the implementation must either *always* check its required
+        fields, or *never* check its required fields, regardless of whether or
+        not the message has been parsed.
 
         Attributes:
           UNKNOWN (int): Unknown
@@ -256,46 +315,17 @@ class Entity(object):
           WORK_OF_ART (int): Artwork
           CONSUMER_GOOD (int): Consumer product
           OTHER (int): Other types of entities
-          PHONE_NUMBER (int): Phone number
-
-          The metadata lists the phone number, formatted according to local
-          convention, plus whichever additional elements appear in the text:
-
-          -  ``number`` - the actual number, broken down into sections as per
-             local convention
-          -  ``national_prefix`` - country code, if detected
-          -  ``area_code`` - region or area code, if detected
-          -  ``extension`` - phone extension (to be dialed after connection), if
-             detected
-          ADDRESS (int): Address
-
-          The metadata identifies the street number and locality plus whichever
-          additional elements appear in the text:
-
-          -  ``street_number`` - street number
-          -  ``locality`` - city or town
-          -  ``street_name`` - street/route name, if detected
-          -  ``postal_code`` - postal code, if detected
-          -  ``country`` - country, if detected<
-          -  ``broad_region`` - administrative area, such as the state, if
-             detected
-          -  ``narrow_region`` - smaller administrative area, such as county, if
-             detected
-          -  ``sublocality`` - used in Asian addresses to demark a district within
-             a city, if detected
-          DATE (int): Date
-
-          The metadata identifies the components of the date:
-
-          -  ``year`` - four digit year, if detected
-          -  ``month`` - two digit month number, if detected
-          -  ``day`` - two digit day number, if detected
+          PHONE_NUMBER (int): The resource has one pattern, but the API owner expects to add more
+          later. (This is the inverse of ORIGINALLY_SINGLE_PATTERN, and prevents
+          that from being necessary once there are multiple patterns.)
+          ADDRESS (int): For extensions, this is the name of the type being extended. It is
+          resolved in the same manner as type_name.
+          DATE (int): `Lemma <https://en.wikipedia.org/wiki/Lemma_%28morphology%29>`__ of
+          the token.
           NUMBER (int): Number
 
           The metadata is the number itself.
-          PRICE (int): Price
-
-          The metadata identifies the ``value`` and ``currency``.
+          PRICE (int): javalite_serializable
         """
 
         UNKNOWN = 0

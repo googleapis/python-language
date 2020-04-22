@@ -325,8 +325,9 @@ class LanguageServiceClient(object):
         metadata=None,
     ):
         """
-        Finds entities, similar to ``AnalyzeEntities`` in the text and analyzes
-        sentiment associated with each entity and its mentions.
+        Selects a method to which this rule applies.
+
+        Refer to ``selector`` for syntax details.
 
         Example:
             >>> from google.cloud import language_v1beta2

@@ -144,8 +144,9 @@ class LanguageServiceGrpcTransport(object):
     def analyze_entity_sentiment(self):
         """Return the gRPC stub for :meth:`LanguageServiceClient.analyze_entity_sentiment`.
 
-        Finds entities, similar to ``AnalyzeEntities`` in the text and analyzes
-        sentiment associated with each entity and its mentions.
+        Selects a method to which this rule applies.
+
+        Refer to ``selector`` for syntax details.
 
         Returns:
             Callable: A callable which accepts the appropriate

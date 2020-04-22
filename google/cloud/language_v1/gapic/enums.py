@@ -21,24 +21,30 @@ import enum
 
 class EncodingType(enum.IntEnum):
     """
-    Represents the text encoding that the caller uses to process the output.
-    Providing an ``EncodingType`` is recommended because the API provides
-    the beginning offsets for various outputs, such as tokens and mentions,
-    and languages that natively use different text encodings may access
-    offsets differently.
+    javalite_serializable
 
     Attributes:
-      NONE (int): If ``EncodingType`` is not specified, encoding-dependent information
-      (such as ``begin_offset``) will be set at ``-1``.
-      UTF8 (int): Encoding-dependent information (such as ``begin_offset``) is calculated
-      based on the UTF-8 encoding of the input. C++ and Go are examples of
-      languages that use this encoding natively.
-      UTF16 (int): Encoding-dependent information (such as ``begin_offset``) is calculated
-      based on the UTF-16 encoding of the input. Java and JavaScript are
-      examples of languages that use this encoding natively.
-      UTF32 (int): Encoding-dependent information (such as ``begin_offset``) is calculated
-      based on the UTF-32 encoding of the input. Python is an example of a
-      language that uses this encoding natively.
+      NONE (int): Entities, along with their semantic information, in the input
+      document. Populated if the user enables
+      ``AnnotateTextRequest.Features.extract_entities``.
+      UTF8 (int): The language of the text, which will be the same as the language
+      specified in the request or, if not specified, the
+      automatically-detected language. See ``Document.language`` field for
+      more details.
+      UTF16 (int): The resource type of a child collection that the annotated field
+      references. This is useful for annotating the ``parent`` field that
+      doesn't have a fixed resource type.
+
+      Example:
+
+      ::
+
+          message ListLogEntriesRequest {
+            string parent = 1 [(google.api.resource_reference) = {
+              child_type: "logging.googleapis.com/LogEntry"
+            };
+          }
+      UTF32 (int): javanano_as_lite
     """
 
     NONE = 0
@@ -242,10 +248,34 @@ class Document(object):
 class Entity(object):
     class Type(enum.IntEnum):
         """
-        The type of the entity. For most entity types, the associated metadata
-        is a Wikipedia URL (``wikipedia_url``) and Knowledge Graph MID
-        (``mid``). The table below lists the associated fields for entities that
-        have different metadata.
+        Should this field be parsed lazily? Lazy applies only to
+        message-type fields. It means that when the outer message is initially
+        parsed, the inner message's contents will not be parsed but instead
+        stored in encoded form. The inner message will actually be parsed when
+        it is first accessed.
+
+        This is only a hint. Implementations are free to choose whether to use
+        eager or lazy parsing regardless of the value of this option. However,
+        setting this option true suggests that the protocol author believes that
+        using lazy parsing on this field is worth the additional bookkeeping
+        overhead typically needed to implement it.
+
+        This option does not affect the public interface of any generated code;
+        all method signatures remain the same. Furthermore, thread-safety of the
+        interface is not affected by this option; const methods remain safe to
+        call from multiple threads concurrently, while non-const methods
+        continue to require exclusive access.
+
+        Note that implementations may choose not to check required fields within
+        a lazy sub-message. That is, calling IsInitialized() on the outer
+        message may return true even if the inner message has missing required
+        fields. This is necessary because otherwise the inner message would have
+        to be parsed in order to perform the check, defeating the purpose of
+        lazy parsing. An implementation which chooses not to check required
+        fields must be consistent about it. That is, for any particular
+        sub-message, the implementation must either *always* check its required
+        fields, or *never* check its required fields, regardless of whether or
+        not the message has been parsed.
 
         Attributes:
           UNKNOWN (int): Unknown
@@ -256,31 +286,12 @@ class Entity(object):
           WORK_OF_ART (int): Artwork
           CONSUMER_GOOD (int): Consumer product
           OTHER (int): Other types of entities
-          PHONE_NUMBER (int): Phone number The metadata lists the phone number, formatted according to
-          local convention, plus whichever additional elements appear in the text:
-
-          .. raw:: html
-
-              <li><code>number</code> &ndash; the actual number, broken down into
-              sections as per local convention</li> <li><code>national_prefix</code>
-              &ndash; country code, if detected</li> <li><code>area_code</code> &ndash;
-              region or area code, if detected</li> <li><code>extension</code> &ndash;
-              phone extension (to be dialed after connection), if detected</li></ul>
-          ADDRESS (int): Address The metadata identifies the street number and locality plus
-          whichever additional elements appear in the text:
-
-          .. raw:: html
-
-              <li><code>street_number</code> &ndash; street number</li>
-              <li><code>locality</code> &ndash; city or town</li>
-              <li><code>street_name</code> &ndash; street/route name, if detected</li>
-              <li><code>postal_code</code> &ndash; postal code, if detected</li>
-              <li><code>country</code> &ndash; country, if detected</li>
-              <li><code>broad_region</code> &ndash; administrative area, such as the
-              state, if detected</li> <li><code>narrow_region</code> &ndash; smaller
-              administrative area, such as county, if detected</li>
-              <li><code>sublocality</code> &ndash; used in Asian addresses to demark a
-              district within a city, if detected</li></ul>
+          PHONE_NUMBER (int): The language of the text, which will be the same as the language
+          specified in the request or, if not specified, the
+          automatically-detected language. See ``Document.language`` field for
+          more details.
+          ADDRESS (int): Required. If the type is not set or is ``TYPE_UNSPECIFIED``, returns
+          an ``INVALID_ARGUMENT`` error.
           DATE (int): Date<br><br>
           The metadata identifies the components of the date:<ul>
           <li><code>year</code> &ndash; four digit year, if detected</li>
