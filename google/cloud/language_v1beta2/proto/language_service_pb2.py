@@ -2866,12 +2866,8 @@ Document = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _DOCUMENT,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
-        "__doc__": """################################################################
-  #
-  
+        "__doc__": """################################################################ #
   Represents the input to API methods.
-  
-  
   Attributes:
       type:
           Required. If the type is not set or is ``TYPE_UNSPECIFIED``,
@@ -2910,8 +2906,6 @@ Sentence = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _SENTENCE,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """Represents a sentence in the input document.
-  
-  
   Attributes:
       text:
           The sentence text.
@@ -2942,11 +2936,9 @@ Entity = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _ENTITY,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
-        "__doc__": """Represents a phrase in the text that is a known entity,
-  such as a person, an organization, or location. The API associates
-  information, such as salience and mentions, with entities.
-  
-  
+        "__doc__": """Represents a phrase in the text that is a known entity, such as a
+  person, an organization, or location. The API associates information,
+  such as salience and mentions, with entities.
   Attributes:
       name:
           The representative name for the entity.
@@ -2986,10 +2978,7 @@ Token = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _TOKEN,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
-        "__doc__": """Represents the smallest syntactic building block of the
-  text.
-  
-  
+        "__doc__": """Represents the smallest syntactic building block of the text.
   Attributes:
       text:
           The token text.
@@ -3013,10 +3002,8 @@ Sentiment = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _SENTIMENT,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
-        "__doc__": """Represents the feeling associated with the entire text or
-  entities in the text. Next ID: 6
-  
-  
+        "__doc__": """Represents the feeling associated with the entire text or entities in
+  the text. Next ID: 6
   Attributes:
       magnitude:
           A non-negative number in the [0, +inf) range, which represents
@@ -3038,8 +3025,6 @@ PartOfSpeech = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _PARTOFSPEECH,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """Represents part of speech information for a token.
-  
-  
   Attributes:
       tag:
           The part of speech tag.
@@ -3078,8 +3063,6 @@ DependencyEdge = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _DEPENDENCYEDGE,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """Represents dependency parse tree information for a token.
-  
-  
   Attributes:
       head_token_index:
           Represents the head of this token in the dependency tree. This
@@ -3101,10 +3084,8 @@ EntityMention = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _ENTITYMENTION,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
-        "__doc__": """Represents a mention for an entity in the text. Currently,
-  proper noun mentions are supported.
-  
-  
+        "__doc__": """Represents a mention for an entity in the text. Currently, proper noun
+  mentions are supported.
   Attributes:
       text:
           The mention text.
@@ -3130,8 +3111,6 @@ TextSpan = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _TEXTSPAN,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """Represents an output piece of text.
-  
-  
   Attributes:
       content:
           The content of the output text.
@@ -3153,8 +3132,6 @@ ClassificationCategory = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CLASSIFICATIONCATEGORY,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """Represents a category returned from the text classifier.
-  
-  
   Attributes:
       name:
           The name of the category representing the document, from the
@@ -3177,8 +3154,6 @@ AnalyzeSentimentRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ANALYZESENTIMENTREQUEST,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The sentiment analysis request message.
-  
-  
   Attributes:
       document:
           Required. Input document.
@@ -3198,8 +3173,6 @@ AnalyzeSentimentResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ANALYZESENTIMENTRESPONSE,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The sentiment analysis response message.
-  
-  
   Attributes:
       document_sentiment:
           The overall sentiment of the input document.
@@ -3224,8 +3197,6 @@ AnalyzeEntitySentimentRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ANALYZEENTITYSENTIMENTREQUEST,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The entity-level sentiment analysis request message.
-  
-  
   Attributes:
       document:
           Required. Input document.
@@ -3244,8 +3215,6 @@ AnalyzeEntitySentimentResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ANALYZEENTITYSENTIMENTRESPONSE,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The entity-level sentiment analysis response message.
-  
-  
   Attributes:
       entities:
           The recognized entities in the input document with associated
@@ -3269,8 +3238,6 @@ AnalyzeEntitiesRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ANALYZEENTITIESREQUEST,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The entity analysis request message.
-  
-  
   Attributes:
       document:
           Required. Input document.
@@ -3289,8 +3256,6 @@ AnalyzeEntitiesResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ANALYZEENTITIESRESPONSE,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The entity analysis response message.
-  
-  
   Attributes:
       entities:
           The recognized entities in the input document.
@@ -3313,8 +3278,6 @@ AnalyzeSyntaxRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ANALYZESYNTAXREQUEST,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The syntax analysis request message.
-  
-  
   Attributes:
       document:
           Required. Input document.
@@ -3333,8 +3296,6 @@ AnalyzeSyntaxResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ANALYZESYNTAXRESPONSE,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The syntax analysis response message.
-  
-  
   Attributes:
       sentences:
           Sentences in the input document.
@@ -3360,8 +3321,6 @@ ClassifyTextRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CLASSIFYTEXTREQUEST,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The document classification request message.
-  
-  
   Attributes:
       document:
           Required. Input document.
@@ -3378,8 +3337,6 @@ ClassifyTextResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _CLASSIFYTEXTRESPONSE,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The document classification response message.
-  
-  
   Attributes:
       categories:
           Categories representing the input document.
@@ -3399,11 +3356,9 @@ AnnotateTextRequest = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _ANNOTATETEXTREQUEST_FEATURES,
                 "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
-                "__doc__": """All available features for sentiment, syntax, and semantic
-    analysis. Setting each one to true will enable that specific analysis
-    for the input. Next ID: 10
-    
-    
+                "__doc__": """All available features for sentiment, syntax, and semantic analysis.
+    Setting each one to true will enable that specific analysis for the
+    input. Next ID: 10
     Attributes:
         extract_syntax:
             Extract syntax information.
@@ -3424,11 +3379,8 @@ AnnotateTextRequest = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _ANNOTATETEXTREQUEST,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
-        "__doc__": """The request message for the text annotation API, which can
-  perform multiple analysis types (sentiment, entities, and syntax) in one
-  call.
-  
-  
+        "__doc__": """The request message for the text annotation API, which can perform
+  multiple analysis types (sentiment, entities, and syntax) in one call.
   Attributes:
       document:
           Required. Input document.
@@ -3450,8 +3402,6 @@ AnnotateTextResponse = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ANNOTATETEXTRESPONSE,
         "__module__": "google.cloud.language_v1beta2.proto.language_service_pb2",
         "__doc__": """The text annotations response message.
-  
-  
   Attributes:
       sentences:
           Sentences in the input document. Populated if the user enables
