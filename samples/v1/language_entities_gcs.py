@@ -26,8 +26,6 @@
 
 # [START language_entities_gcs]
 from google.cloud import language_v1
-from google.cloud.language_v1 import enums
-
 
 def sample_analyze_entities(gcs_content_uri):
     """
@@ -43,7 +41,7 @@ def sample_analyze_entities(gcs_content_uri):
     # gcs_content_uri = 'gs://cloud-samples-data/language/entity.txt'
 
     # Available types: PLAIN_TEXT, HTML
-    type_ = enums.Document.Type.PLAIN_TEXT
+    type_ = language_v1.enums.Document.Type.PLAIN_TEXT
 
     # Optional. If not specified, the language is automatically detected.
     # For list of supported languages:
@@ -54,7 +52,7 @@ def sample_analyze_entities(gcs_content_uri):
     # Available values: NONE, UTF8, UTF16, UTF32
     encoding_type = enums.EncodingType.UTF8
 
-    response = client.analyze_entities(document, encoding_type=encoding_type)
+    response = client.analyze_entities(request = {'document': document, 'encoding_type': encoding_type})
     # Loop through entitites returned from the API
     for entity in response.entities:
         print(u"Representative name for the entity: {}".format(entity.name))

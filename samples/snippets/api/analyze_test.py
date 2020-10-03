@@ -18,8 +18,7 @@ import analyze
 
 def test_analyze_entities():
     result = analyze.analyze_entities(
-        "Tom Sawyer is a book written by a guy known as Mark Twain."
-    )
+        request = {'document': "Tom Sawyer is a book written by a guy known as Mark Twain."})
 
     assert result["language"] == "en"
     entities = result["entities"]
@@ -30,16 +29,15 @@ def test_analyze_entities():
 
 
 def test_analyze_sentiment(capsys):
-    result = analyze.analyze_sentiment("your face is really ugly and i hate it.")
+    result = analyze.analyze_sentiment(request = {'document': "your face is really ugly and i hate it."})
 
     sentiment = result["documentSentiment"]
     assert sentiment["score"] < 0
     assert sentiment["magnitude"] < 1
 
     result = analyze.analyze_sentiment(
-        "cheerio, mate - I greatly admire the pallor of your visage, and your "
-        "angle of repose leaves little room for improvement."
-    )
+        request = {'document': "cheerio, mate - I greatly admire the pallor of your visage, and your "
+        "angle of repose leaves little room for improvement."})
 
     sentiment = result["documentSentiment"]
     assert sentiment["score"] > 0
@@ -48,14 +46,13 @@ def test_analyze_sentiment(capsys):
 
 def test_analyze_syntax(capsys):
     result = analyze.analyze_syntax(
-        textwrap.dedent(
+        request = {'document': textwrap.dedent(
             u"""\
         Keep away from people who try to belittle your ambitions. Small people
         always do that, but the really great make you feel that you, too, can
         become great.
         - Mark Twain"""
-        )
-    )
+        )})
 
     assert len(result["tokens"])
     first_token = result["tokens"][0]
@@ -74,7 +71,7 @@ def test_analyze_syntax_utf8():
     """
     test_string = u"a \u00e3 \u0201 \U0001f636 b"
     byte_array = test_string.encode("utf8")
-    result = analyze.analyze_syntax(test_string, encoding="UTF8")
+    result = analyze.analyze_syntax(request = {'document': test_string, 'encoding_type': "UTF8"})
     tokens = result["tokens"]
 
     assert tokens[0]["text"]["content"] == "a"
@@ -122,7 +119,7 @@ def test_analyze_syntax_utf16():
     byte_array = test_string.encode("utf16")
     # Remove the byte order marker, which the offsets don't account for
     byte_array = byte_array[2:]
-    result = analyze.analyze_syntax(test_string, encoding="UTF16")
+    result = analyze.analyze_syntax(request = {'document': test_string, 'encoding_type': "UTF16"})
     tokens = result["tokens"]
 
     assert tokens[0]["text"]["content"] == "a"
@@ -197,7 +194,7 @@ def test_annotate_text_utf32():
     byte_array = test_string.encode("utf32")
     # Remove the byte order marker, which the offsets don't account for
     byte_array = byte_array[4:]
-    result = analyze.analyze_syntax(test_string, encoding="UTF32")
+    result = analyze.analyze_syntax(request = {'document': test_string, 'encoding_type': "UTF32"})
     tokens = result["tokens"]
 
     assert tokens[0]["text"]["content"] == "a"
@@ -254,7 +251,7 @@ def test_annotate_text_utf32_directly_index_into_unicode():
     into a utf32 array is equivalent to indexing into a python unicode object.
     """
     test_string = u"a \u00e3 \u0201 \U0001f636 b"
-    result = analyze.analyze_syntax(test_string, encoding="UTF32")
+    result = analyze.analyze_syntax(request = {'document': test_string, 'encoding_type': "UTF32"})
     tokens = result["tokens"]
 
     assert tokens[0]["text"]["content"] == "a"

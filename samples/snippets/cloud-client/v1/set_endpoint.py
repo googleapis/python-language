@@ -31,7 +31,7 @@ def set_endpoint():
     )
 
     # Detects the sentiment of the text
-    sentiment = client.analyze_sentiment(document=document).document_sentiment
+    sentiment = client.analyze_sentiment(request = {'document': document}).document_sentiment
 
     print("Sentiment: {}, {}".format(sentiment.score, sentiment.magnitude))
 

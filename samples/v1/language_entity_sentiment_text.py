@@ -53,7 +53,7 @@ def sample_analyze_entity_sentiment(text_content):
     # Available values: NONE, UTF8, UTF16, UTF32
     encoding_type = enums.EncodingType.UTF8
 
-    response = client.analyze_entity_sentiment(document, encoding_type=encoding_type)
+    response = client.analyze_entity_sentiment(request = {'document': document, 'encoding_type': encoding_type})
     # Loop through entitites returned from the API
     for entity in response.entities:
         print(u"Representative name for the entity: {}".format(entity.name))
