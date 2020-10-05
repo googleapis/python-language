@@ -3,8 +3,8 @@
     {
       "git": {
         "name": ".",
-        "remote": "git@github.com:/googleapis/python-language.git",
-        "sha": "8be89edfeac45bce555aa8bf3d1279833c49d36f"
+        "remote": "https://github.com/googleapis/python-language.git",
+        "sha": "da77485629325df112f7873d6b8dfda87a856a74"
       }
     },
     {
