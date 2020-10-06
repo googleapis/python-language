@@ -42,7 +42,7 @@ def sample_classify_text(gcs_content_uri):
     # gcs_content_uri = 'gs://cloud-samples-data/language/classify-entertainment.txt'
 
     # Available types: PLAIN_TEXT, HTML
-    type_ = language_v1.enums.Document.Type.PLAIN_TEXT
+    type_ = language_v1.Document.Type.PLAIN_TEXT
 
     # Optional. If not specified, the language is automatically detected.
     # For list of supported languages:

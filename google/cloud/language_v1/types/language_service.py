@@ -62,9 +62,7 @@ class EncodingType(proto.Enum):
 
 
 class Document(proto.Message):
-    r"""################################################################
-    #
-    Represents the input to API methods.
+    r"""Represents the input to API methods.
 
     Attributes:
         type_ (~.language_service.Document.Type):

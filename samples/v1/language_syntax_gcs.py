@@ -41,7 +41,7 @@ def sample_analyze_syntax(gcs_content_uri):
     # gcs_content_uri = 'gs://cloud-samples-data/language/syntax-sentence.txt'
 
     # Available types: PLAIN_TEXT, HTML
-    type_ = language_v1.enums.Document.Type.PLAIN_TEXT
+    type_ = language_v1.Document.Type.PLAIN_TEXT
 
     # Optional. If not specified, the language is automatically detected.
     # For list of supported languages:
@@ -50,7 +50,7 @@ def sample_analyze_syntax(gcs_content_uri):
     document = {"gcs_content_uri": gcs_content_uri, "type": type_, "language": language}
 
     # Available values: NONE, UTF8, UTF16, UTF32
-    encoding_type = language_v1.enums.EncodingType.UTF8
+    encoding_type = language_v1.EncodingType.UTF8
 
     response = client.analyze_syntax(request = {'document': document, 'encoding_type': encoding_type})
     # Loop through tokens returned from the API
@@ -68,13 +68,13 @@ def sample_analyze_syntax(gcs_content_uri):
         # Get the tag, e.g. NOUN, ADJ for Adjective, et al.
         print(
             u"Part of Speech tag: {}".format(
-                language_v1.enums.PartOfSpeech.Tag(part_of_speech.tag).name
+                language_v1.PartOfSpeech.Tag(part_of_speech.tag).name
             )
         )
         # Get the voice, e.g. ACTIVE or PASSIVE
-        print(u"Voice: {}".format(language_v1.enums.PartOfSpeech.Voice(part_of_speech.voice).name))
+        print(u"Voice: {}".format(language_v1.PartOfSpeech.Voice(part_of_speech.voice).name))
         # Get the tense, e.g. PAST, FUTURE, PRESENT, et al.
-        print(u"Tense: {}".format(language_v1.enums.PartOfSpeech.Tense(part_of_speech.tense).name))
+        print(u"Tense: {}".format(language_v1.PartOfSpeech.Tense(part_of_speech.tense).name))
         # See API reference for additional Part of Speech information available
         # Get the lemma of the token. Wikipedia lemma description
         # https://en.wikipedia.org/wiki/Lemma_(morphology)
@@ -85,7 +85,7 @@ def sample_analyze_syntax(gcs_content_uri):
         dependency_edge = token.dependency_edge
         print(u"Head token index: {}".format(dependency_edge.head_token_index))
         print(
-            u"Label: {}".format(language_v1.enums.DependencyEdge.Label(dependency_edge.label).name)
+            u"Label: {}".format(language_v1.DependencyEdge.Label(dependency_edge.label).name)
         )
 
     # Get the language of the text, which will be the same as
