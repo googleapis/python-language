@@ -39,8 +39,8 @@ def classify(text, verbose=True):
 
     language_client = language_v1.LanguageServiceClient()
 
-    document = language_v1.types.Document(
-        content=text, type=language_v1.enums.Document.Type.PLAIN_TEXT
+    document = language_v1.Document(
+        content=text, type=language_v1.Document.Type.PLAIN_TEXT
     )
     response = language_client.classify_text(request = {'document': document})
     categories = response.categories
