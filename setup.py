@@ -87,7 +87,7 @@ setuptools.setup(
     python_requires=">=3.6",
     scripts=[
         "scripts/fixup_language_v1_keywords.py",
-        "scripts/fixup_language_v1beta2_keywords.py"
+        "scripts/fixup_language_v1beta2_keywords.py",
     ],
     include_package_data=True,
     zip_safe=False,
