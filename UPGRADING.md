@@ -30,7 +30,7 @@ $ fixup_language_v1_keywords.py --input-directory .samples/ --output-directory s
 ```py
 from google.cloud import language_v1
 language = language_v1.LanguageClient()
-return language.lookup_entry(linked_resource=resource_name)
+return language.analyze_sentiment(document=document).document_sentiment
 ```
 
 
@@ -38,24 +38,23 @@ return language.lookup_entry(linked_resource=resource_name)
 ```py
 from google.cloud import language_v1
 language = language_v1.LanguageServiceClient()
-return language.lookup_entry(request={'linked_resource': resource_name})
+return language.analyze_sentiment(request={'document': document}).document_sentiment
 ```
 
 ### More Details
 
-In `google-cloud-datacatalog<2.0.0`, parameters required by the API were positional parameters and optional parameters were keyword parameters.
+In `google-cloud-language<2.0.0`, parameters required by the API were positional parameters and optional parameters were keyword parameters.
 
 **Before:**
 ```py
-    def create_entry_group(
+    def analyze_sentiment(
         self,
-        parent,
-        entry_group_id,
-        entry_group=None,
+        document,
+        encoding_type=None,
         retry=google.api_core.gapic_v1.method.DEFAULT,
         timeout=google.api_core.gapic_v1.method.DEFAULT,
         metadata=None,
-    ):
+    ):    
 ```
 
 In the 2.0.0 release, all methods have a single positional parameter `request`. Method docstrings indicate whether a parameter is required or optional.
@@ -65,17 +64,16 @@ Some methods have additional keyword only parameters. The available parameters d
 
 **After:**
 ```py
-    def create_entry_group(
+    def analyze_sentiment(
         self,
-        request: datacatalog.CreateEntryGroupRequest = None,
+        request: language_service.AnalyzeSentimentRequest = None,
         *,
-        parent: str = None,
-        entry_group_id: str = None,
-        entry_group: datacatalog.EntryGroup = None,
+        document: language_service.Document = None,
+        encoding_type: language_service.EncodingType = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
-    ) -> datacatalog.EntryGroup:
+    ) -> language_service.AnalyzeSentimentResponse:
 ```
 
 > **NOTE:** The `request` parameter and flattened keyword parameters for the API are mutually exclusive.
@@ -83,20 +81,18 @@ Some methods have additional keyword only parameters. The available parameters d
 Both of these calls are valid:
 
 ```py
-response = client.create_entry_group(
+response = client.analyze_sentiment(
     request={
-        "parent": parent,
-        "entry_group_id": entry_group_id,
-        "entry_group": entry_group
+        "document": document,
+        "encoding_type": encoding_type        
     }
 )
 ```
 
 ```py
-response = client.create_entry_group(
-    parent=parent, 
-    entry_group_id=entry_group_id,
-    entry_group=entry_group
+response = client.analyze_sentiment(
+    document=document, 
+    encoding_type=encoding_type
     )  # Make an API request.
 ```
 
@@ -104,12 +100,11 @@ This call is invalid because it mixes `request` with a keyword argument `entry_g
 will result in an error.
 
 ```py
-response = client.create_entry_group(
+response = client.analyze_sentiment(
     request={
-        "parent": parent,
-        "entry_group_id"=entry_group_id
+        "document": document        
     },
-    entry_group=entry_group
+    encoding_type=encoding_type
 )
 ```
 
@@ -122,17 +117,17 @@ response = client.create_entry_group(
 The submodules `enums` and `types` have been removed.
 **Before:**
 ```py
-from google.cloud import datacatalog_v1
-entry = datacatalog_v1beta1.types.Entry()
-entry.type = datacatalog_v1beta1.enums.EntryType.FILESET
+from google.cloud import language_v1
+document = language_v1.types.Document(content=text, type=language_v1.enums.Document.Type.PLAIN_TEXT)
+encoding_type = language_v1.enums.EncodingType.UTF8
 ```
 
 
 **After:**
 ```py
-from google.cloud import datacatalog_v1
-entry = datacatalog_v1beta1.Entry()
-entry.type = datacatalog_v1beta1.EntryType.FILESET
+from google.cloud import language_v1
+document = language_v1.Document(content=text, type_=language_v1.Document.Type.PLAIN_TEXT)
+encoding_type = language_v1.EncodingType.UTF8
 ```
 
 ## Project Path Helper Methods
