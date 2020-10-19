@@ -4,7 +4,7 @@
 
 [1]: https://pypi.org/project/google-cloud-language/#history
 
-## [1.4.0](https://www.github.com/googleapis/python-language/compare/v1.3.0...v1.4.0) (2020-10-16)
+## [2.0.0](https://www.github.com/googleapis/python-language/compare/v1.3.0...v2.0.0) (2020-10-16)
 
 
 ### Features
