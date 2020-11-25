@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-language/#history
 
+### [1.4.1](https://www.github.com/googleapis/python-language/compare/v1.4.0...v1.4.1) (2020-11-25)
+
+
+### Bug Fixes
+
+* adds underscore to "type" to NL API samples ([#49](https://www.github.com/googleapis/python-language/issues/49)) ([36aa320](https://www.github.com/googleapis/python-language/commit/36aa320bf3e0018d66a7d0c91ce4733f20e9acc0))
+
 ## [2.0.0](https://www.github.com/googleapis/python-language/compare/v1.3.0...v2.0.0) (2020-10-16)
 
 
