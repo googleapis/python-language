@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-language.git",
-        "sha": "aca1861f4aa1be286f0d20d2d22c82aade198e11"
+        "sha": "3476c0f72529cbcbe61ea5c7e6a22291777bed7e"
       }
     },
     {
