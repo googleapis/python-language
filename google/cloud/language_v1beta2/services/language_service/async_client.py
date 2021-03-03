@@ -45,8 +45,47 @@ class LanguageServiceAsyncClient:
     DEFAULT_ENDPOINT = LanguageServiceClient.DEFAULT_ENDPOINT
     DEFAULT_MTLS_ENDPOINT = LanguageServiceClient.DEFAULT_MTLS_ENDPOINT
 
+    common_billing_account_path = staticmethod(
+        LanguageServiceClient.common_billing_account_path
+    )
+    parse_common_billing_account_path = staticmethod(
+        LanguageServiceClient.parse_common_billing_account_path
+    )
+
+    common_folder_path = staticmethod(LanguageServiceClient.common_folder_path)
+    parse_common_folder_path = staticmethod(
+        LanguageServiceClient.parse_common_folder_path
+    )
+
+    common_organization_path = staticmethod(
+        LanguageServiceClient.common_organization_path
+    )
+    parse_common_organization_path = staticmethod(
+        LanguageServiceClient.parse_common_organization_path
+    )
+
+    common_project_path = staticmethod(LanguageServiceClient.common_project_path)
+    parse_common_project_path = staticmethod(
+        LanguageServiceClient.parse_common_project_path
+    )
+
+    common_location_path = staticmethod(LanguageServiceClient.common_location_path)
+    parse_common_location_path = staticmethod(
+        LanguageServiceClient.parse_common_location_path
+    )
+
+    from_service_account_info = LanguageServiceClient.from_service_account_info
     from_service_account_file = LanguageServiceClient.from_service_account_file
     from_service_account_json = from_service_account_file
+
+    @property
+    def transport(self) -> LanguageServiceTransport:
+        """Return the transport used by the client instance.
+
+        Returns:
+            LanguageServiceTransport: The transport used by the client instance.
+        """
+        return self._client.transport
 
     get_transport_class = functools.partial(
         type(LanguageServiceClient).get_transport_class, type(LanguageServiceClient)
@@ -113,18 +152,19 @@ class LanguageServiceAsyncClient:
         r"""Analyzes the sentiment of the provided text.
 
         Args:
-            request (:class:`~.language_service.AnalyzeSentimentRequest`):
+            request (:class:`google.cloud.language_v1beta2.types.AnalyzeSentimentRequest`):
                 The request object. The sentiment analysis request
                 message.
-            document (:class:`~.language_service.Document`):
+            document (:class:`google.cloud.language_v1beta2.types.Document`):
                 Required. Input document.
                 This corresponds to the ``document`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            encoding_type (:class:`~.language_service.EncodingType`):
+            encoding_type (:class:`google.cloud.language_v1beta2.types.EncodingType`):
                 The encoding type used by the API to
                 calculate sentence offsets for the
                 sentence sentiment.
+
                 This corresponds to the ``encoding_type`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -136,7 +176,7 @@ class LanguageServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.language_service.AnalyzeSentimentResponse:
+            google.cloud.language_v1beta2.types.AnalyzeSentimentResponse:
                 The sentiment analysis response
                 message.
 
@@ -144,7 +184,8 @@ class LanguageServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([document, encoding_type]):
+        has_flattened_params = any([document, encoding_type])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -169,7 +210,7 @@ class LanguageServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
+                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
             ),
             default_timeout=600.0,
@@ -198,16 +239,17 @@ class LanguageServiceAsyncClient:
         properties.
 
         Args:
-            request (:class:`~.language_service.AnalyzeEntitiesRequest`):
+            request (:class:`google.cloud.language_v1beta2.types.AnalyzeEntitiesRequest`):
                 The request object. The entity analysis request message.
-            document (:class:`~.language_service.Document`):
+            document (:class:`google.cloud.language_v1beta2.types.Document`):
                 Required. Input document.
                 This corresponds to the ``document`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            encoding_type (:class:`~.language_service.EncodingType`):
+            encoding_type (:class:`google.cloud.language_v1beta2.types.EncodingType`):
                 The encoding type used by the API to
                 calculate offsets.
+
                 This corresponds to the ``encoding_type`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -219,13 +261,14 @@ class LanguageServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.language_service.AnalyzeEntitiesResponse:
+            google.cloud.language_v1beta2.types.AnalyzeEntitiesResponse:
                 The entity analysis response message.
         """
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([document, encoding_type]):
+        has_flattened_params = any([document, encoding_type])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -250,7 +293,7 @@ class LanguageServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
+                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
             ),
             default_timeout=600.0,
@@ -279,17 +322,18 @@ class LanguageServiceAsyncClient:
         and its mentions.
 
         Args:
-            request (:class:`~.language_service.AnalyzeEntitySentimentRequest`):
+            request (:class:`google.cloud.language_v1beta2.types.AnalyzeEntitySentimentRequest`):
                 The request object. The entity-level sentiment analysis
                 request message.
-            document (:class:`~.language_service.Document`):
+            document (:class:`google.cloud.language_v1beta2.types.Document`):
                 Required. Input document.
                 This corresponds to the ``document`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            encoding_type (:class:`~.language_service.EncodingType`):
+            encoding_type (:class:`google.cloud.language_v1beta2.types.EncodingType`):
                 The encoding type used by the API to
                 calculate offsets.
+
                 This corresponds to the ``encoding_type`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -301,7 +345,7 @@ class LanguageServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.language_service.AnalyzeEntitySentimentResponse:
+            google.cloud.language_v1beta2.types.AnalyzeEntitySentimentResponse:
                 The entity-level sentiment analysis
                 response message.
 
@@ -309,7 +353,8 @@ class LanguageServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([document, encoding_type]):
+        has_flattened_params = any([document, encoding_type])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -334,7 +379,7 @@ class LanguageServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
+                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
             ),
             default_timeout=600.0,
@@ -362,16 +407,17 @@ class LanguageServiceAsyncClient:
         tags, dependency trees, and other properties.
 
         Args:
-            request (:class:`~.language_service.AnalyzeSyntaxRequest`):
+            request (:class:`google.cloud.language_v1beta2.types.AnalyzeSyntaxRequest`):
                 The request object. The syntax analysis request message.
-            document (:class:`~.language_service.Document`):
+            document (:class:`google.cloud.language_v1beta2.types.Document`):
                 Required. Input document.
                 This corresponds to the ``document`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            encoding_type (:class:`~.language_service.EncodingType`):
+            encoding_type (:class:`google.cloud.language_v1beta2.types.EncodingType`):
                 The encoding type used by the API to
                 calculate offsets.
+
                 This corresponds to the ``encoding_type`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -383,13 +429,14 @@ class LanguageServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.language_service.AnalyzeSyntaxResponse:
+            google.cloud.language_v1beta2.types.AnalyzeSyntaxResponse:
                 The syntax analysis response message.
         """
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([document, encoding_type]):
+        has_flattened_params = any([document, encoding_type])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -414,7 +461,7 @@ class LanguageServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
+                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
             ),
             default_timeout=600.0,
@@ -439,10 +486,10 @@ class LanguageServiceAsyncClient:
         r"""Classifies a document into categories.
 
         Args:
-            request (:class:`~.language_service.ClassifyTextRequest`):
+            request (:class:`google.cloud.language_v1beta2.types.ClassifyTextRequest`):
                 The request object. The document classification request
                 message.
-            document (:class:`~.language_service.Document`):
+            document (:class:`google.cloud.language_v1beta2.types.Document`):
                 Required. Input document.
                 This corresponds to the ``document`` field
                 on the ``request`` instance; if ``request`` is provided, this
@@ -455,7 +502,7 @@ class LanguageServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.language_service.ClassifyTextResponse:
+            google.cloud.language_v1beta2.types.ClassifyTextResponse:
                 The document classification response
                 message.
 
@@ -463,7 +510,8 @@ class LanguageServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([document]):
+        has_flattened_params = any([document])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -486,7 +534,7 @@ class LanguageServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
+                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
             ),
             default_timeout=600.0,
@@ -515,23 +563,24 @@ class LanguageServiceAsyncClient:
         call.
 
         Args:
-            request (:class:`~.language_service.AnnotateTextRequest`):
+            request (:class:`google.cloud.language_v1beta2.types.AnnotateTextRequest`):
                 The request object. The request message for the text
                 annotation API, which can perform multiple analysis
                 types (sentiment, entities, and syntax) in one call.
-            document (:class:`~.language_service.Document`):
+            document (:class:`google.cloud.language_v1beta2.types.Document`):
                 Required. Input document.
                 This corresponds to the ``document`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            features (:class:`~.language_service.AnnotateTextRequest.Features`):
+            features (:class:`google.cloud.language_v1beta2.types.AnnotateTextRequest.Features`):
                 Required. The enabled features.
                 This corresponds to the ``features`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            encoding_type (:class:`~.language_service.EncodingType`):
+            encoding_type (:class:`google.cloud.language_v1beta2.types.EncodingType`):
                 The encoding type used by the API to
                 calculate offsets.
+
                 This corresponds to the ``encoding_type`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
@@ -543,7 +592,7 @@ class LanguageServiceAsyncClient:
                 sent along with the request as metadata.
 
         Returns:
-            ~.language_service.AnnotateTextResponse:
+            google.cloud.language_v1beta2.types.AnnotateTextResponse:
                 The text annotations response
                 message.
 
@@ -551,7 +600,8 @@ class LanguageServiceAsyncClient:
         # Create or coerce a protobuf request object.
         # Sanity check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
-        if request is not None and any([document, features, encoding_type]):
+        has_flattened_params = any([document, features, encoding_type])
+        if request is not None and has_flattened_params:
             raise ValueError(
                 "If the `request` argument is set, then none of "
                 "the individual field arguments should be set."
@@ -578,7 +628,7 @@ class LanguageServiceAsyncClient:
                 maximum=60.0,
                 multiplier=1.3,
                 predicate=retries.if_exception_type(
-                    exceptions.ServiceUnavailable, exceptions.DeadlineExceeded,
+                    exceptions.DeadlineExceeded, exceptions.ServiceUnavailable,
                 ),
             ),
             default_timeout=600.0,
