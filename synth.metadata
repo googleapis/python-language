@@ -11,8 +11,8 @@
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "d9b32e92fa57c37e5af0dc03badfe741170c5849",
-        "internalRef": "359580699"
+        "sha": "3b0afe54b5aedcd7cee0036b16d2a31324d0db60",
+        "internalRef": "361217394"
       }
     },
     {
@@ -138,7 +138,6 @@
     "google/cloud/language_v1beta2/services/language_service/transports/grpc_asyncio.py",
     "google/cloud/language_v1beta2/types/__init__.py",
     "google/cloud/language_v1beta2/types/language_service.py",
-    "language-v1-py.tar.gz",
     "mypy.ini",
     "noxfile.py",
     "renovate.json",
