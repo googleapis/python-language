@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,6 +15,7 @@
 #
 
 from .services.language_service import LanguageServiceClient
+
 from .types.language_service import AnalyzeEntitiesRequest
 from .types.language_service import AnalyzeEntitiesResponse
 from .types.language_service import AnalyzeEntitySentimentRequest
@@ -39,7 +39,6 @@ from .types.language_service import Sentence
 from .types.language_service import Sentiment
 from .types.language_service import TextSpan
 from .types.language_service import Token
-
 
 __all__ = (
     "AnalyzeEntitiesRequest",
