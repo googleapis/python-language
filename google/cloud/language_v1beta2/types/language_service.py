@@ -61,6 +61,7 @@ class EncodingType(proto.Enum):
 
 class Document(proto.Message):
     r"""Represents the input to API methods.
+
     Attributes:
         type_ (google.cloud.language_v1beta2.types.Document.Type):
             Required. If the type is not set or is ``TYPE_UNSPECIFIED``,
