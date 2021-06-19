@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-language/#history
 
+### [2.1.1](https://www.github.com/googleapis/python-language/compare/v2.1.0...v2.1.1) (2021-06-19)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-language/issues/1127)) ([#132](https://www.github.com/googleapis/python-language/issues/132)) ([bc5f89e](https://www.github.com/googleapis/python-language/commit/bc5f89e3d21bccd2d78ae3f2f4038b19db54871d))
+
 ## [2.1.0](https://www.github.com/googleapis/python-language/compare/v1.4.0...v2.1.0) (2021-06-16)
 
 
