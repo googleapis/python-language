@@ -4,6 +4,18 @@
 
 [1]: https://pypi.org/project/google-cloud-language/#history
 
+## [2.3.0](https://www.github.com/googleapis/python-language/compare/v2.2.1...v2.3.0) (2021-07-28)
+
+
+### Features
+
+* add Samples section to CONTRIBUTING.rst ([#161](https://www.github.com/googleapis/python-language/issues/161)) ([5c28a16](https://www.github.com/googleapis/python-language/commit/5c28a169c9723fec23fac8bb5e2aa9e0dd420c66))
+
+
+### Bug Fixes
+
+* enable self signed jwt for grpc ([#168](https://www.github.com/googleapis/python-language/issues/168)) ([4249607](https://www.github.com/googleapis/python-language/commit/4249607b20905b54b14e84d313838e46727bad54))
+
 ### [2.2.1](https://www.github.com/googleapis/python-language/compare/v2.2.0...v2.2.1) (2021-07-20)
 
 
