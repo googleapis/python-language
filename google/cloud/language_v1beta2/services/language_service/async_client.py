@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2020 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -213,6 +213,28 @@ class LanguageServiceAsyncClient:
     ) -> language_service.AnalyzeSentimentResponse:
         r"""Analyzes the sentiment of the provided text.
 
+        .. code-block:: python
+
+            from google.cloud import language_v1beta2
+
+            def sample_analyze_sentiment():
+                # Create a client
+                client = language_v1beta2.LanguageServiceClient()
+
+                # Initialize request argument(s)
+                document = language_v1beta2.Document()
+                document.content = "content_value"
+
+                request = language_v1beta2.AnalyzeSentimentRequest(
+                    document=document,
+                )
+
+                # Make the request
+                response = client.analyze_sentiment(request=request)
+
+                # Handle the response
+                print(response)
+
         Args:
             request (Union[google.cloud.language_v1beta2.types.AnalyzeSentimentRequest, dict]):
                 The request object. The sentiment analysis request
@@ -243,7 +265,7 @@ class LanguageServiceAsyncClient:
 
         """
         # Create or coerce a protobuf request object.
-        # Sanity check: If we got a request object, we should *not* have
+        # Quick check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([document, encoding_type])
         if request is not None and has_flattened_params:
@@ -300,6 +322,29 @@ class LanguageServiceAsyncClient:
         salience, mentions for each entity, and other
         properties.
 
+
+        .. code-block:: python
+
+            from google.cloud import language_v1beta2
+
+            def sample_analyze_entities():
+                # Create a client
+                client = language_v1beta2.LanguageServiceClient()
+
+                # Initialize request argument(s)
+                document = language_v1beta2.Document()
+                document.content = "content_value"
+
+                request = language_v1beta2.AnalyzeEntitiesRequest(
+                    document=document,
+                )
+
+                # Make the request
+                response = client.analyze_entities(request=request)
+
+                # Handle the response
+                print(response)
+
         Args:
             request (Union[google.cloud.language_v1beta2.types.AnalyzeEntitiesRequest, dict]):
                 The request object. The entity analysis request message.
@@ -326,7 +371,7 @@ class LanguageServiceAsyncClient:
                 The entity analysis response message.
         """
         # Create or coerce a protobuf request object.
-        # Sanity check: If we got a request object, we should *not* have
+        # Quick check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([document, encoding_type])
         if request is not None and has_flattened_params:
@@ -383,6 +428,29 @@ class LanguageServiceAsyncClient:
         in the text and analyzes sentiment associated with each entity
         and its mentions.
 
+
+        .. code-block:: python
+
+            from google.cloud import language_v1beta2
+
+            def sample_analyze_entity_sentiment():
+                # Create a client
+                client = language_v1beta2.LanguageServiceClient()
+
+                # Initialize request argument(s)
+                document = language_v1beta2.Document()
+                document.content = "content_value"
+
+                request = language_v1beta2.AnalyzeEntitySentimentRequest(
+                    document=document,
+                )
+
+                # Make the request
+                response = client.analyze_entity_sentiment(request=request)
+
+                # Handle the response
+                print(response)
+
         Args:
             request (Union[google.cloud.language_v1beta2.types.AnalyzeEntitySentimentRequest, dict]):
                 The request object. The entity-level sentiment analysis
@@ -412,7 +480,7 @@ class LanguageServiceAsyncClient:
 
         """
         # Create or coerce a protobuf request object.
-        # Sanity check: If we got a request object, we should *not* have
+        # Quick check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([document, encoding_type])
         if request is not None and has_flattened_params:
@@ -468,6 +536,29 @@ class LanguageServiceAsyncClient:
         boundaries and tokenization along with part-of-speech
         tags, dependency trees, and other properties.
 
+
+        .. code-block:: python
+
+            from google.cloud import language_v1beta2
+
+            def sample_analyze_syntax():
+                # Create a client
+                client = language_v1beta2.LanguageServiceClient()
+
+                # Initialize request argument(s)
+                document = language_v1beta2.Document()
+                document.content = "content_value"
+
+                request = language_v1beta2.AnalyzeSyntaxRequest(
+                    document=document,
+                )
+
+                # Make the request
+                response = client.analyze_syntax(request=request)
+
+                # Handle the response
+                print(response)
+
         Args:
             request (Union[google.cloud.language_v1beta2.types.AnalyzeSyntaxRequest, dict]):
                 The request object. The syntax analysis request message.
@@ -494,7 +585,7 @@ class LanguageServiceAsyncClient:
                 The syntax analysis response message.
         """
         # Create or coerce a protobuf request object.
-        # Sanity check: If we got a request object, we should *not* have
+        # Quick check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([document, encoding_type])
         if request is not None and has_flattened_params:
@@ -547,6 +638,28 @@ class LanguageServiceAsyncClient:
     ) -> language_service.ClassifyTextResponse:
         r"""Classifies a document into categories.
 
+        .. code-block:: python
+
+            from google.cloud import language_v1beta2
+
+            def sample_classify_text():
+                # Create a client
+                client = language_v1beta2.LanguageServiceClient()
+
+                # Initialize request argument(s)
+                document = language_v1beta2.Document()
+                document.content = "content_value"
+
+                request = language_v1beta2.ClassifyTextRequest(
+                    document=document,
+                )
+
+                # Make the request
+                response = client.classify_text(request=request)
+
+                # Handle the response
+                print(response)
+
         Args:
             request (Union[google.cloud.language_v1beta2.types.ClassifyTextRequest, dict]):
                 The request object. The document classification request
@@ -569,7 +682,7 @@ class LanguageServiceAsyncClient:
 
         """
         # Create or coerce a protobuf request object.
-        # Sanity check: If we got a request object, we should *not* have
+        # Quick check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([document])
         if request is not None and has_flattened_params:
@@ -624,6 +737,29 @@ class LanguageServiceAsyncClient:
         sentiment, entity, and classification features in one
         call.
 
+
+        .. code-block:: python
+
+            from google.cloud import language_v1beta2
+
+            def sample_annotate_text():
+                # Create a client
+                client = language_v1beta2.LanguageServiceClient()
+
+                # Initialize request argument(s)
+                document = language_v1beta2.Document()
+                document.content = "content_value"
+
+                request = language_v1beta2.AnnotateTextRequest(
+                    document=document,
+                )
+
+                # Make the request
+                response = client.annotate_text(request=request)
+
+                # Handle the response
+                print(response)
+
         Args:
             request (Union[google.cloud.language_v1beta2.types.AnnotateTextRequest, dict]):
                 The request object. The request message for the text
@@ -659,7 +795,7 @@ class LanguageServiceAsyncClient:
 
         """
         # Create or coerce a protobuf request object.
-        # Sanity check: If we got a request object, we should *not* have
+        # Quick check: If we got a request object, we should *not* have
         # gotten any keyword arguments that map to the request.
         has_flattened_params = any([document, features, encoding_type])
         if request is not None and has_flattened_params:
