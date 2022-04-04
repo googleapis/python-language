@@ -158,8 +158,10 @@ class LanguageServiceClient(object):
                     )
                 self.transport = transport
         else:
-            self.transport = language_service_grpc_transport.LanguageServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials
+            self.transport = (
+                language_service_grpc_transport.LanguageServiceGrpcTransport(
+                    address=api_endpoint, channel=channel, credentials=credentials
+                )
             )
 
         if client_info is None:

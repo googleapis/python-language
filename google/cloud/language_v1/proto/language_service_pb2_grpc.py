@@ -8,15 +8,15 @@ from google.cloud.language_v1.proto import (
 
 class LanguageServiceStub(object):
     """Provides text analysis operations such as sentiment analysis and entity
-  recognition.
-  """
+    recognition.
+    """
 
     def __init__(self, channel):
         """Constructor.
 
-    Args:
-      channel: A grpc.Channel.
-    """
+        Args:
+          channel: A grpc.Channel.
+        """
         self.AnalyzeSentiment = channel.unary_unary(
             "/google.cloud.language.v1.LanguageService/AnalyzeSentiment",
             request_serializer=google_dot_cloud_dot_language__v1_dot_proto_dot_language__service__pb2.AnalyzeSentimentRequest.SerializeToString,
@@ -51,53 +51,51 @@ class LanguageServiceStub(object):
 
 class LanguageServiceServicer(object):
     """Provides text analysis operations such as sentiment analysis and entity
-  recognition.
-  """
+    recognition.
+    """
 
     def AnalyzeSentiment(self, request, context):
-        """Analyzes the sentiment of the provided text.
-    """
+        """Analyzes the sentiment of the provided text."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def AnalyzeEntities(self, request, context):
         """Finds named entities (currently proper names and common nouns) in the text
-    along with entity types, salience, mentions for each entity, and
-    other properties.
-    """
+        along with entity types, salience, mentions for each entity, and
+        other properties.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def AnalyzeEntitySentiment(self, request, context):
         """Finds entities, similar to [AnalyzeEntities][google.cloud.language.v1.LanguageService.AnalyzeEntities] in the text and analyzes
-    sentiment associated with each entity and its mentions.
-    """
+        sentiment associated with each entity and its mentions.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def AnalyzeSyntax(self, request, context):
         """Analyzes the syntax of the text and provides sentence boundaries and
-    tokenization along with part of speech tags, dependency trees, and other
-    properties.
-    """
+        tokenization along with part of speech tags, dependency trees, and other
+        properties.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def ClassifyText(self, request, context):
-        """Classifies a document into categories.
-    """
+        """Classifies a document into categories."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def AnnotateText(self, request, context):
         """A convenience method that provides all the features that analyzeSentiment,
-    analyzeEntities, and analyzeSyntax provide in one call.
-    """
+        analyzeEntities, and analyzeSyntax provide in one call.
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
