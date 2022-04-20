@@ -21,10 +21,10 @@
 
 import sys
 
-# [START language_sentiment_text]
-
 from google.cloud import language_v1
 import six
+
+# [START language_sentiment_text]
 
 
 def sample_analyze_sentiment(content):
