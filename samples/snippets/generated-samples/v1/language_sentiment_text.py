@@ -24,9 +24,8 @@ import sys
 # isort: split
 # [START language_sentiment_text]
 
-import six
-
 from google.cloud import language_v1
+import six
 
 
 def sample_analyze_sentiment(content):
