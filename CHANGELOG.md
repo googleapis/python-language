@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-language/#history
 
+## [1.3.2](https://github.com/googleapis/python-language/compare/v1.3.1...v1.3.2) (2022-06-08)
+
+
+### Bug Fixes
+
+* **deps:** require protobuf<4.0.0 on v1 branch ([#330](https://github.com/googleapis/python-language/issues/330)) ([9c69bbc](https://github.com/googleapis/python-language/commit/9c69bbcf601df6473a6cb54a9c4244f6330be0e1))
+
 ### [1.3.1](https://github.com/googleapis/python-language/compare/v1.3.0...v1.3.1) (2022-04-01)
 
 
