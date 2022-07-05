@@ -2108,7 +2108,6 @@ def test_language_service_transport_auth_adc(transport_class):
     [
         transports.LanguageServiceGrpcTransport,
         transports.LanguageServiceGrpcAsyncIOTransport,
-        transports.LanguageServiceRestTransport,
     ],
 )
 def test_language_service_transport_auth_gdch_credentials(transport_class):
