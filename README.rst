@@ -3,7 +3,7 @@ Python Client for Natural Language API
 
 |stable| |pypi| |versions|
 
-`Natural Language API`_: 
+`Natural Language API`_: provides natural language understanding technologies to developers, including sentiment analysis, entity analysis, entity sentiment analysis, content classification, and syntax analysis. This API is part of the larger Cloud Machine Learning API family.
 
 - `Client Library Documentation`_
 - `Product Documentation`_
