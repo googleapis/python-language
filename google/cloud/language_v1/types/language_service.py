@@ -60,9 +60,7 @@ class EncodingType(proto.Enum):
 
 
 class Document(proto.Message):
-    r"""################################################################
-    #
-    Represents the input to API methods.
+    r"""Represents the input to API methods.
 
     This message has `oneof`_ fields (mutually exclusive fields).
     For each oneof, at most one member field can be set at the same time.
