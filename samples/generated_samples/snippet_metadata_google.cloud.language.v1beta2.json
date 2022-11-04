@@ -2,12 +2,13 @@
   "clientLibrary": {
     "apis": [
       {
-        "id": "google.cloud.language.v1",
-        "version": "v1"
+        "id": "google.cloud.language.v1beta2",
+        "version": "v1beta2"
       }
     ],
     "language": "PYTHON",
-    "name": "google-cloud-language"
+    "name": "google-cloud-language",
+    "version": "0.1.0"
   },
   "snippets": [
     {
@@ -15,14 +16,14 @@
       "clientMethod": {
         "async": true,
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient",
           "shortName": "LanguageServiceAsyncClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient.analyze_entities",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient.analyze_entities",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.AnalyzeEntities",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.AnalyzeEntities",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "AnalyzeEntities"
@@ -30,15 +31,15 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.AnalyzeEntitiesRequest"
+            "type": "google.cloud.language_v1beta2.types.AnalyzeEntitiesRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "encoding_type",
-            "type": "google.cloud.language_v1.types.EncodingType"
+            "type": "google.cloud.language_v1beta2.types.EncodingType"
           },
           {
             "name": "retry",
@@ -53,14 +54,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.AnalyzeEntitiesResponse",
+        "resultType": "google.cloud.language_v1beta2.types.AnalyzeEntitiesResponse",
         "shortName": "analyze_entities"
       },
       "description": "Sample for AnalyzeEntities",
-      "file": "language_v1_generated_language_service_analyze_entities_async.py",
+      "file": "language_v1beta2_generated_language_service_analyze_entities_async.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_AnalyzeEntities_async",
+      "regionTag": "language_v1beta2_generated_LanguageService_AnalyzeEntities_async",
       "segments": [
         {
           "end": 54,
@@ -93,20 +94,20 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_analyze_entities_async.py"
+      "title": "language_v1beta2_generated_language_service_analyze_entities_async.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceClient",
           "shortName": "LanguageServiceClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceClient.analyze_entities",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceClient.analyze_entities",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.AnalyzeEntities",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.AnalyzeEntities",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "AnalyzeEntities"
@@ -114,15 +115,15 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.AnalyzeEntitiesRequest"
+            "type": "google.cloud.language_v1beta2.types.AnalyzeEntitiesRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "encoding_type",
-            "type": "google.cloud.language_v1.types.EncodingType"
+            "type": "google.cloud.language_v1beta2.types.EncodingType"
           },
           {
             "name": "retry",
@@ -137,14 +138,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.AnalyzeEntitiesResponse",
+        "resultType": "google.cloud.language_v1beta2.types.AnalyzeEntitiesResponse",
         "shortName": "analyze_entities"
       },
       "description": "Sample for AnalyzeEntities",
-      "file": "language_v1_generated_language_service_analyze_entities_sync.py",
+      "file": "language_v1beta2_generated_language_service_analyze_entities_sync.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_AnalyzeEntities_sync",
+      "regionTag": "language_v1beta2_generated_LanguageService_AnalyzeEntities_sync",
       "segments": [
         {
           "end": 54,
@@ -177,21 +178,21 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_analyze_entities_sync.py"
+      "title": "language_v1beta2_generated_language_service_analyze_entities_sync.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "async": true,
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient",
           "shortName": "LanguageServiceAsyncClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient.analyze_entity_sentiment",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient.analyze_entity_sentiment",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.AnalyzeEntitySentiment",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.AnalyzeEntitySentiment",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "AnalyzeEntitySentiment"
@@ -199,15 +200,15 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.AnalyzeEntitySentimentRequest"
+            "type": "google.cloud.language_v1beta2.types.AnalyzeEntitySentimentRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "encoding_type",
-            "type": "google.cloud.language_v1.types.EncodingType"
+            "type": "google.cloud.language_v1beta2.types.EncodingType"
           },
           {
             "name": "retry",
@@ -222,14 +223,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.AnalyzeEntitySentimentResponse",
+        "resultType": "google.cloud.language_v1beta2.types.AnalyzeEntitySentimentResponse",
         "shortName": "analyze_entity_sentiment"
       },
       "description": "Sample for AnalyzeEntitySentiment",
-      "file": "language_v1_generated_language_service_analyze_entity_sentiment_async.py",
+      "file": "language_v1beta2_generated_language_service_analyze_entity_sentiment_async.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_AnalyzeEntitySentiment_async",
+      "regionTag": "language_v1beta2_generated_LanguageService_AnalyzeEntitySentiment_async",
       "segments": [
         {
           "end": 54,
@@ -262,20 +263,20 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_analyze_entity_sentiment_async.py"
+      "title": "language_v1beta2_generated_language_service_analyze_entity_sentiment_async.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceClient",
           "shortName": "LanguageServiceClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceClient.analyze_entity_sentiment",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceClient.analyze_entity_sentiment",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.AnalyzeEntitySentiment",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.AnalyzeEntitySentiment",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "AnalyzeEntitySentiment"
@@ -283,15 +284,15 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.AnalyzeEntitySentimentRequest"
+            "type": "google.cloud.language_v1beta2.types.AnalyzeEntitySentimentRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "encoding_type",
-            "type": "google.cloud.language_v1.types.EncodingType"
+            "type": "google.cloud.language_v1beta2.types.EncodingType"
           },
           {
             "name": "retry",
@@ -306,14 +307,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.AnalyzeEntitySentimentResponse",
+        "resultType": "google.cloud.language_v1beta2.types.AnalyzeEntitySentimentResponse",
         "shortName": "analyze_entity_sentiment"
       },
       "description": "Sample for AnalyzeEntitySentiment",
-      "file": "language_v1_generated_language_service_analyze_entity_sentiment_sync.py",
+      "file": "language_v1beta2_generated_language_service_analyze_entity_sentiment_sync.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_AnalyzeEntitySentiment_sync",
+      "regionTag": "language_v1beta2_generated_LanguageService_AnalyzeEntitySentiment_sync",
       "segments": [
         {
           "end": 54,
@@ -346,21 +347,21 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_analyze_entity_sentiment_sync.py"
+      "title": "language_v1beta2_generated_language_service_analyze_entity_sentiment_sync.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "async": true,
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient",
           "shortName": "LanguageServiceAsyncClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient.analyze_sentiment",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient.analyze_sentiment",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.AnalyzeSentiment",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.AnalyzeSentiment",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "AnalyzeSentiment"
@@ -368,15 +369,15 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.AnalyzeSentimentRequest"
+            "type": "google.cloud.language_v1beta2.types.AnalyzeSentimentRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "encoding_type",
-            "type": "google.cloud.language_v1.types.EncodingType"
+            "type": "google.cloud.language_v1beta2.types.EncodingType"
           },
           {
             "name": "retry",
@@ -391,14 +392,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.AnalyzeSentimentResponse",
+        "resultType": "google.cloud.language_v1beta2.types.AnalyzeSentimentResponse",
         "shortName": "analyze_sentiment"
       },
       "description": "Sample for AnalyzeSentiment",
-      "file": "language_v1_generated_language_service_analyze_sentiment_async.py",
+      "file": "language_v1beta2_generated_language_service_analyze_sentiment_async.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_AnalyzeSentiment_async",
+      "regionTag": "language_v1beta2_generated_LanguageService_AnalyzeSentiment_async",
       "segments": [
         {
           "end": 54,
@@ -431,20 +432,20 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_analyze_sentiment_async.py"
+      "title": "language_v1beta2_generated_language_service_analyze_sentiment_async.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceClient",
           "shortName": "LanguageServiceClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceClient.analyze_sentiment",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceClient.analyze_sentiment",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.AnalyzeSentiment",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.AnalyzeSentiment",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "AnalyzeSentiment"
@@ -452,15 +453,15 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.AnalyzeSentimentRequest"
+            "type": "google.cloud.language_v1beta2.types.AnalyzeSentimentRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "encoding_type",
-            "type": "google.cloud.language_v1.types.EncodingType"
+            "type": "google.cloud.language_v1beta2.types.EncodingType"
           },
           {
             "name": "retry",
@@ -475,14 +476,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.AnalyzeSentimentResponse",
+        "resultType": "google.cloud.language_v1beta2.types.AnalyzeSentimentResponse",
         "shortName": "analyze_sentiment"
       },
       "description": "Sample for AnalyzeSentiment",
-      "file": "language_v1_generated_language_service_analyze_sentiment_sync.py",
+      "file": "language_v1beta2_generated_language_service_analyze_sentiment_sync.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_AnalyzeSentiment_sync",
+      "regionTag": "language_v1beta2_generated_LanguageService_AnalyzeSentiment_sync",
       "segments": [
         {
           "end": 54,
@@ -515,21 +516,21 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_analyze_sentiment_sync.py"
+      "title": "language_v1beta2_generated_language_service_analyze_sentiment_sync.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "async": true,
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient",
           "shortName": "LanguageServiceAsyncClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient.analyze_syntax",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient.analyze_syntax",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.AnalyzeSyntax",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.AnalyzeSyntax",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "AnalyzeSyntax"
@@ -537,15 +538,15 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.AnalyzeSyntaxRequest"
+            "type": "google.cloud.language_v1beta2.types.AnalyzeSyntaxRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "encoding_type",
-            "type": "google.cloud.language_v1.types.EncodingType"
+            "type": "google.cloud.language_v1beta2.types.EncodingType"
           },
           {
             "name": "retry",
@@ -560,14 +561,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.AnalyzeSyntaxResponse",
+        "resultType": "google.cloud.language_v1beta2.types.AnalyzeSyntaxResponse",
         "shortName": "analyze_syntax"
       },
       "description": "Sample for AnalyzeSyntax",
-      "file": "language_v1_generated_language_service_analyze_syntax_async.py",
+      "file": "language_v1beta2_generated_language_service_analyze_syntax_async.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_AnalyzeSyntax_async",
+      "regionTag": "language_v1beta2_generated_LanguageService_AnalyzeSyntax_async",
       "segments": [
         {
           "end": 54,
@@ -600,20 +601,20 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_analyze_syntax_async.py"
+      "title": "language_v1beta2_generated_language_service_analyze_syntax_async.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceClient",
           "shortName": "LanguageServiceClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceClient.analyze_syntax",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceClient.analyze_syntax",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.AnalyzeSyntax",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.AnalyzeSyntax",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "AnalyzeSyntax"
@@ -621,15 +622,15 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.AnalyzeSyntaxRequest"
+            "type": "google.cloud.language_v1beta2.types.AnalyzeSyntaxRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "encoding_type",
-            "type": "google.cloud.language_v1.types.EncodingType"
+            "type": "google.cloud.language_v1beta2.types.EncodingType"
           },
           {
             "name": "retry",
@@ -644,14 +645,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.AnalyzeSyntaxResponse",
+        "resultType": "google.cloud.language_v1beta2.types.AnalyzeSyntaxResponse",
         "shortName": "analyze_syntax"
       },
       "description": "Sample for AnalyzeSyntax",
-      "file": "language_v1_generated_language_service_analyze_syntax_sync.py",
+      "file": "language_v1beta2_generated_language_service_analyze_syntax_sync.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_AnalyzeSyntax_sync",
+      "regionTag": "language_v1beta2_generated_LanguageService_AnalyzeSyntax_sync",
       "segments": [
         {
           "end": 54,
@@ -684,21 +685,21 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_analyze_syntax_sync.py"
+      "title": "language_v1beta2_generated_language_service_analyze_syntax_sync.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "async": true,
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient",
           "shortName": "LanguageServiceAsyncClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient.annotate_text",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient.annotate_text",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.AnnotateText",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.AnnotateText",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "AnnotateText"
@@ -706,19 +707,19 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.AnnotateTextRequest"
+            "type": "google.cloud.language_v1beta2.types.AnnotateTextRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "features",
-            "type": "google.cloud.language_v1.types.AnnotateTextRequest.Features"
+            "type": "google.cloud.language_v1beta2.types.AnnotateTextRequest.Features"
           },
           {
             "name": "encoding_type",
-            "type": "google.cloud.language_v1.types.EncodingType"
+            "type": "google.cloud.language_v1beta2.types.EncodingType"
           },
           {
             "name": "retry",
@@ -733,14 +734,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.AnnotateTextResponse",
+        "resultType": "google.cloud.language_v1beta2.types.AnnotateTextResponse",
         "shortName": "annotate_text"
       },
       "description": "Sample for AnnotateText",
-      "file": "language_v1_generated_language_service_annotate_text_async.py",
+      "file": "language_v1beta2_generated_language_service_annotate_text_async.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_AnnotateText_async",
+      "regionTag": "language_v1beta2_generated_LanguageService_AnnotateText_async",
       "segments": [
         {
           "end": 54,
@@ -773,20 +774,20 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_annotate_text_async.py"
+      "title": "language_v1beta2_generated_language_service_annotate_text_async.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceClient",
           "shortName": "LanguageServiceClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceClient.annotate_text",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceClient.annotate_text",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.AnnotateText",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.AnnotateText",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "AnnotateText"
@@ -794,19 +795,19 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.AnnotateTextRequest"
+            "type": "google.cloud.language_v1beta2.types.AnnotateTextRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "features",
-            "type": "google.cloud.language_v1.types.AnnotateTextRequest.Features"
+            "type": "google.cloud.language_v1beta2.types.AnnotateTextRequest.Features"
           },
           {
             "name": "encoding_type",
-            "type": "google.cloud.language_v1.types.EncodingType"
+            "type": "google.cloud.language_v1beta2.types.EncodingType"
           },
           {
             "name": "retry",
@@ -821,14 +822,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.AnnotateTextResponse",
+        "resultType": "google.cloud.language_v1beta2.types.AnnotateTextResponse",
         "shortName": "annotate_text"
       },
       "description": "Sample for AnnotateText",
-      "file": "language_v1_generated_language_service_annotate_text_sync.py",
+      "file": "language_v1beta2_generated_language_service_annotate_text_sync.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_AnnotateText_sync",
+      "regionTag": "language_v1beta2_generated_LanguageService_AnnotateText_sync",
       "segments": [
         {
           "end": 54,
@@ -861,21 +862,21 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_annotate_text_sync.py"
+      "title": "language_v1beta2_generated_language_service_annotate_text_sync.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "async": true,
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient",
           "shortName": "LanguageServiceAsyncClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceAsyncClient.classify_text",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceAsyncClient.classify_text",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.ClassifyText",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.ClassifyText",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "ClassifyText"
@@ -883,11 +884,11 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.ClassifyTextRequest"
+            "type": "google.cloud.language_v1beta2.types.ClassifyTextRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "retry",
@@ -902,14 +903,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.ClassifyTextResponse",
+        "resultType": "google.cloud.language_v1beta2.types.ClassifyTextResponse",
         "shortName": "classify_text"
       },
       "description": "Sample for ClassifyText",
-      "file": "language_v1_generated_language_service_classify_text_async.py",
+      "file": "language_v1beta2_generated_language_service_classify_text_async.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_ClassifyText_async",
+      "regionTag": "language_v1beta2_generated_LanguageService_ClassifyText_async",
       "segments": [
         {
           "end": 54,
@@ -942,20 +943,20 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_classify_text_async.py"
+      "title": "language_v1beta2_generated_language_service_classify_text_async.py"
     },
     {
       "canonical": true,
       "clientMethod": {
         "client": {
-          "fullName": "google.cloud.language_v1.LanguageServiceClient",
+          "fullName": "google.cloud.language_v1beta2.LanguageServiceClient",
           "shortName": "LanguageServiceClient"
         },
-        "fullName": "google.cloud.language_v1.LanguageServiceClient.classify_text",
+        "fullName": "google.cloud.language_v1beta2.LanguageServiceClient.classify_text",
         "method": {
-          "fullName": "google.cloud.language.v1.LanguageService.ClassifyText",
+          "fullName": "google.cloud.language.v1beta2.LanguageService.ClassifyText",
           "service": {
-            "fullName": "google.cloud.language.v1.LanguageService",
+            "fullName": "google.cloud.language.v1beta2.LanguageService",
             "shortName": "LanguageService"
           },
           "shortName": "ClassifyText"
@@ -963,11 +964,11 @@
         "parameters": [
           {
             "name": "request",
-            "type": "google.cloud.language_v1.types.ClassifyTextRequest"
+            "type": "google.cloud.language_v1beta2.types.ClassifyTextRequest"
           },
           {
             "name": "document",
-            "type": "google.cloud.language_v1.types.Document"
+            "type": "google.cloud.language_v1beta2.types.Document"
           },
           {
             "name": "retry",
@@ -982,14 +983,14 @@
             "type": "Sequence[Tuple[str, str]"
           }
         ],
-        "resultType": "google.cloud.language_v1.types.ClassifyTextResponse",
+        "resultType": "google.cloud.language_v1beta2.types.ClassifyTextResponse",
         "shortName": "classify_text"
       },
       "description": "Sample for ClassifyText",
-      "file": "language_v1_generated_language_service_classify_text_sync.py",
+      "file": "language_v1beta2_generated_language_service_classify_text_sync.py",
       "language": "PYTHON",
       "origin": "API_DEFINITION",
-      "regionTag": "language_v1_generated_LanguageService_ClassifyText_sync",
+      "regionTag": "language_v1beta2_generated_LanguageService_ClassifyText_sync",
       "segments": [
         {
           "end": 54,
@@ -1022,7 +1023,7 @@
           "type": "RESPONSE_HANDLING"
         }
       ],
-      "title": "language_v1_generated_language_service_classify_text_sync.py"
+      "title": "language_v1beta2_generated_language_service_classify_text_sync.py"
     }
   ]
 }
