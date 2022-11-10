@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 
 from google.api_core import client_options as client_options_lib
 from google.api_core import exceptions as core_exceptions
@@ -57,7 +68,7 @@ class LanguageServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[LanguageServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -312,7 +323,7 @@ class LanguageServiceClient(metaclass=LanguageServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, LanguageServiceTransport, None] = None,
+        transport: Optional[Union[str, LanguageServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -410,12 +421,12 @@ class LanguageServiceClient(metaclass=LanguageServiceClientMeta):
 
     def analyze_sentiment(
         self,
-        request: Union[language_service.AnalyzeSentimentRequest, dict] = None,
+        request: Optional[Union[language_service.AnalyzeSentimentRequest, dict]] = None,
         *,
-        document: language_service.Document = None,
-        encoding_type: language_service.EncodingType = None,
+        document: Optional[language_service.Document] = None,
+        encoding_type: Optional[language_service.EncodingType] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> language_service.AnalyzeSentimentResponse:
         r"""Analyzes the sentiment of the provided text.
@@ -518,12 +529,12 @@ class LanguageServiceClient(metaclass=LanguageServiceClientMeta):
 
     def analyze_entities(
         self,
-        request: Union[language_service.AnalyzeEntitiesRequest, dict] = None,
+        request: Optional[Union[language_service.AnalyzeEntitiesRequest, dict]] = None,
         *,
-        document: language_service.Document = None,
-        encoding_type: language_service.EncodingType = None,
+        document: Optional[language_service.Document] = None,
+        encoding_type: Optional[language_service.EncodingType] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> language_service.AnalyzeEntitiesResponse:
         r"""Finds named entities (currently proper names and
@@ -625,12 +636,14 @@ class LanguageServiceClient(metaclass=LanguageServiceClientMeta):
 
     def analyze_entity_sentiment(
         self,
-        request: Union[language_service.AnalyzeEntitySentimentRequest, dict] = None,
+        request: Optional[
+            Union[language_service.AnalyzeEntitySentimentRequest, dict]
+        ] = None,
         *,
-        document: language_service.Document = None,
-        encoding_type: language_service.EncodingType = None,
+        document: Optional[language_service.Document] = None,
+        encoding_type: Optional[language_service.EncodingType] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> language_service.AnalyzeEntitySentimentResponse:
         r"""Finds entities, similar to
@@ -735,12 +748,12 @@ class LanguageServiceClient(metaclass=LanguageServiceClientMeta):
 
     def analyze_syntax(
         self,
-        request: Union[language_service.AnalyzeSyntaxRequest, dict] = None,
+        request: Optional[Union[language_service.AnalyzeSyntaxRequest, dict]] = None,
         *,
-        document: language_service.Document = None,
-        encoding_type: language_service.EncodingType = None,
+        document: Optional[language_service.Document] = None,
+        encoding_type: Optional[language_service.EncodingType] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> language_service.AnalyzeSyntaxResponse:
         r"""Analyzes the syntax of the text and provides sentence
@@ -841,11 +854,11 @@ class LanguageServiceClient(metaclass=LanguageServiceClientMeta):
 
     def classify_text(
         self,
-        request: Union[language_service.ClassifyTextRequest, dict] = None,
+        request: Optional[Union[language_service.ClassifyTextRequest, dict]] = None,
         *,
-        document: language_service.Document = None,
+        document: Optional[language_service.Document] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> language_service.ClassifyTextResponse:
         r"""Classifies a document into categories.
@@ -938,13 +951,13 @@ class LanguageServiceClient(metaclass=LanguageServiceClientMeta):
 
     def annotate_text(
         self,
-        request: Union[language_service.AnnotateTextRequest, dict] = None,
+        request: Optional[Union[language_service.AnnotateTextRequest, dict]] = None,
         *,
-        document: language_service.Document = None,
-        features: language_service.AnnotateTextRequest.Features = None,
-        encoding_type: language_service.EncodingType = None,
+        document: Optional[language_service.Document] = None,
+        features: Optional[language_service.AnnotateTextRequest.Features] = None,
+        encoding_type: Optional[language_service.EncodingType] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> language_service.AnnotateTextResponse:
         r"""A convenience method that provides all syntax,
