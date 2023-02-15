@@ -14,24 +14,21 @@
 # limitations under the License.
 #
 
-from google.auth.transport.requests import AuthorizedSession  # type: ignore
-import json  # type: ignore
-import grpc  # type: ignore
-from google.auth.transport.grpc import SslCredentials  # type: ignore
-from google.auth import credentials as ga_credentials  # type: ignore
-from google.api_core import exceptions as core_exceptions
-from google.api_core import retry as retries
-from google.api_core import rest_helpers
-from google.api_core import rest_streaming
-from google.api_core import path_template
-from google.api_core import gapic_v1
-
-from google.protobuf import json_format
-from requests import __version__ as requests_version
 import dataclasses
+import json  # type: ignore
 import re
 from typing import Callable, Dict, List, Optional, Sequence, Tuple, Union
 import warnings
+
+from google.api_core import gapic_v1, path_template, rest_helpers, rest_streaming
+from google.api_core import exceptions as core_exceptions
+from google.api_core import retry as retries
+from google.auth import credentials as ga_credentials  # type: ignore
+from google.auth.transport.grpc import SslCredentials  # type: ignore
+from google.auth.transport.requests import AuthorizedSession  # type: ignore
+from google.protobuf import json_format
+import grpc  # type: ignore
+from requests import __version__ as requests_version
 
 try:
     OptionalRetry = Union[retries.Retry, gapic_v1.method._MethodDefault]
@@ -39,10 +36,10 @@ except AttributeError:  # pragma: NO COVER
     OptionalRetry = Union[retries.Retry, object]  # type: ignore
 
 
-from google.cloud.language_v1.types import language_service
+from google.cloud.language_v1beta2.types import language_service
 
-from .base import LanguageServiceTransport, DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
-
+from .base import DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from .base import LanguageServiceTransport
 
 DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
     gapic_version=BASE_DEFAULT_CLIENT_INFO.gapic_version,
@@ -119,7 +116,12 @@ class LanguageServiceRestInterceptor:
 
 
     """
-    def pre_analyze_entities(self, request: language_service.AnalyzeEntitiesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[language_service.AnalyzeEntitiesRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_analyze_entities(
+        self,
+        request: language_service.AnalyzeEntitiesRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[language_service.AnalyzeEntitiesRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for analyze_entities
 
         Override in a subclass to manipulate the request or metadata
@@ -127,7 +129,9 @@ class LanguageServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_analyze_entities(self, response: language_service.AnalyzeEntitiesResponse) -> language_service.AnalyzeEntitiesResponse:
+    def post_analyze_entities(
+        self, response: language_service.AnalyzeEntitiesResponse
+    ) -> language_service.AnalyzeEntitiesResponse:
         """Post-rpc interceptor for analyze_entities
 
         Override in a subclass to manipulate the response
@@ -135,7 +139,14 @@ class LanguageServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_analyze_entity_sentiment(self, request: language_service.AnalyzeEntitySentimentRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[language_service.AnalyzeEntitySentimentRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_analyze_entity_sentiment(
+        self,
+        request: language_service.AnalyzeEntitySentimentRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[
+        language_service.AnalyzeEntitySentimentRequest, Sequence[Tuple[str, str]]
+    ]:
         """Pre-rpc interceptor for analyze_entity_sentiment
 
         Override in a subclass to manipulate the request or metadata
@@ -143,7 +154,9 @@ class LanguageServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_analyze_entity_sentiment(self, response: language_service.AnalyzeEntitySentimentResponse) -> language_service.AnalyzeEntitySentimentResponse:
+    def post_analyze_entity_sentiment(
+        self, response: language_service.AnalyzeEntitySentimentResponse
+    ) -> language_service.AnalyzeEntitySentimentResponse:
         """Post-rpc interceptor for analyze_entity_sentiment
 
         Override in a subclass to manipulate the response
@@ -151,7 +164,12 @@ class LanguageServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_analyze_sentiment(self, request: language_service.AnalyzeSentimentRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[language_service.AnalyzeSentimentRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_analyze_sentiment(
+        self,
+        request: language_service.AnalyzeSentimentRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[language_service.AnalyzeSentimentRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for analyze_sentiment
 
         Override in a subclass to manipulate the request or metadata
@@ -159,7 +177,9 @@ class LanguageServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_analyze_sentiment(self, response: language_service.AnalyzeSentimentResponse) -> language_service.AnalyzeSentimentResponse:
+    def post_analyze_sentiment(
+        self, response: language_service.AnalyzeSentimentResponse
+    ) -> language_service.AnalyzeSentimentResponse:
         """Post-rpc interceptor for analyze_sentiment
 
         Override in a subclass to manipulate the response
@@ -167,7 +187,12 @@ class LanguageServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_analyze_syntax(self, request: language_service.AnalyzeSyntaxRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[language_service.AnalyzeSyntaxRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_analyze_syntax(
+        self,
+        request: language_service.AnalyzeSyntaxRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[language_service.AnalyzeSyntaxRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for analyze_syntax
 
         Override in a subclass to manipulate the request or metadata
@@ -175,7 +200,9 @@ class LanguageServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_analyze_syntax(self, response: language_service.AnalyzeSyntaxResponse) -> language_service.AnalyzeSyntaxResponse:
+    def post_analyze_syntax(
+        self, response: language_service.AnalyzeSyntaxResponse
+    ) -> language_service.AnalyzeSyntaxResponse:
         """Post-rpc interceptor for analyze_syntax
 
         Override in a subclass to manipulate the response
@@ -183,7 +210,12 @@ class LanguageServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_annotate_text(self, request: language_service.AnnotateTextRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[language_service.AnnotateTextRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_annotate_text(
+        self,
+        request: language_service.AnnotateTextRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[language_service.AnnotateTextRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for annotate_text
 
         Override in a subclass to manipulate the request or metadata
@@ -191,7 +223,9 @@ class LanguageServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_annotate_text(self, response: language_service.AnnotateTextResponse) -> language_service.AnnotateTextResponse:
+    def post_annotate_text(
+        self, response: language_service.AnnotateTextResponse
+    ) -> language_service.AnnotateTextResponse:
         """Post-rpc interceptor for annotate_text
 
         Override in a subclass to manipulate the response
@@ -199,7 +233,12 @@ class LanguageServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_classify_text(self, request: language_service.ClassifyTextRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[language_service.ClassifyTextRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_classify_text(
+        self,
+        request: language_service.ClassifyTextRequest,
+        metadata: Sequence[Tuple[str, str]],
+    ) -> Tuple[language_service.ClassifyTextRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for classify_text
 
         Override in a subclass to manipulate the request or metadata
@@ -207,7 +246,9 @@ class LanguageServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_classify_text(self, response: language_service.ClassifyTextResponse) -> language_service.ClassifyTextResponse:
+    def post_classify_text(
+        self, response: language_service.ClassifyTextResponse
+    ) -> language_service.ClassifyTextResponse:
         """Post-rpc interceptor for classify_text
 
         Override in a subclass to manipulate the response
@@ -238,20 +279,21 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
 
     """
 
-    def __init__(self, *,
-            host: str = 'language.googleapis.com',
-            credentials: Optional[ga_credentials.Credentials] = None,
-            credentials_file: Optional[str] = None,
-            scopes: Optional[Sequence[str]] = None,
-            client_cert_source_for_mtls: Optional[Callable[[
-                ], Tuple[bytes, bytes]]] = None,
-            quota_project_id: Optional[str] = None,
-            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-            always_use_jwt_access: Optional[bool] = False,
-            url_scheme: str = 'https',
-            interceptor: Optional[LanguageServiceRestInterceptor] = None,
-            api_audience: Optional[str] = None,
-            ) -> None:
+    def __init__(
+        self,
+        *,
+        host: str = "language.googleapis.com",
+        credentials: Optional[ga_credentials.Credentials] = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        client_cert_source_for_mtls: Optional[Callable[[], Tuple[bytes, bytes]]] = None,
+        quota_project_id: Optional[str] = None,
+        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+        always_use_jwt_access: Optional[bool] = False,
+        url_scheme: str = "https",
+        interceptor: Optional[LanguageServiceRestInterceptor] = None,
+        api_audience: Optional[str] = None,
+    ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -290,7 +332,9 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
         # credentials object
         maybe_url_match = re.match("^(?P<scheme>http(?:s)?://)?(?P<host>.*)$", host)
         if maybe_url_match is None:
-            raise ValueError(f"Unexpected hostname structure: {host}")  # pragma: NO COVER
+            raise ValueError(
+                f"Unexpected hostname structure: {host}"
+            )  # pragma: NO COVER
 
         url_match_items = maybe_url_match.groupdict()
 
@@ -301,10 +345,11 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
             credentials=credentials,
             client_info=client_info,
             always_use_jwt_access=always_use_jwt_access,
-            api_audience=api_audience
+            api_audience=api_audience,
         )
         self._session = AuthorizedSession(
-            self._credentials, default_host=self.DEFAULT_HOST)
+            self._credentials, default_host=self.DEFAULT_HOST
+        )
         if client_cert_source_for_mtls:
             self._session.configure_mtls_channel(client_cert_source_for_mtls)
         self._interceptor = interceptor or LanguageServiceRestInterceptor()
@@ -314,19 +359,24 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
         def __hash__(self):
             return hash("AnalyzeEntities")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: language_service.AnalyzeEntitiesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> language_service.AnalyzeEntitiesResponse:
+        def __call__(
+            self,
+            request: language_service.AnalyzeEntitiesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> language_service.AnalyzeEntitiesResponse:
             r"""Call the analyze entities method over HTTP.
 
             Args:
@@ -343,46 +393,51 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
                     The entity analysis response message.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/documents:analyzeEntities',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1beta2/documents:analyzeEntities",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_analyze_entities(request, metadata)
+            request, metadata = self._interceptor.pre_analyze_entities(
+                request, metadata
+            )
             pb_request = language_service.AnalyzeEntitiesRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -401,19 +456,24 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
         def __hash__(self):
             return hash("AnalyzeEntitySentiment")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: language_service.AnalyzeEntitySentimentRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> language_service.AnalyzeEntitySentimentResponse:
+        def __call__(
+            self,
+            request: language_service.AnalyzeEntitySentimentRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> language_service.AnalyzeEntitySentimentResponse:
             r"""Call the analyze entity sentiment method over HTTP.
 
             Args:
@@ -434,46 +494,51 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/documents:analyzeEntitySentiment',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1beta2/documents:analyzeEntitySentiment",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_analyze_entity_sentiment(request, metadata)
+            request, metadata = self._interceptor.pre_analyze_entity_sentiment(
+                request, metadata
+            )
             pb_request = language_service.AnalyzeEntitySentimentRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -492,19 +557,24 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
         def __hash__(self):
             return hash("AnalyzeSentiment")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: language_service.AnalyzeSentimentRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> language_service.AnalyzeSentimentResponse:
+        def __call__(
+            self,
+            request: language_service.AnalyzeSentimentRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> language_service.AnalyzeSentimentResponse:
             r"""Call the analyze sentiment method over HTTP.
 
             Args:
@@ -525,46 +595,51 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/documents:analyzeSentiment',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1beta2/documents:analyzeSentiment",
+                    "body": "*",
+                },
             ]
-            request, metadata = self._interceptor.pre_analyze_sentiment(request, metadata)
+            request, metadata = self._interceptor.pre_analyze_sentiment(
+                request, metadata
+            )
             pb_request = language_service.AnalyzeSentimentRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -583,19 +658,24 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
         def __hash__(self):
             return hash("AnalyzeSyntax")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: language_service.AnalyzeSyntaxRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> language_service.AnalyzeSyntaxResponse:
+        def __call__(
+            self,
+            request: language_service.AnalyzeSyntaxRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> language_service.AnalyzeSyntaxResponse:
             r"""Call the analyze syntax method over HTTP.
 
             Args:
@@ -612,11 +692,12 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
                     The syntax analysis response message.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/documents:analyzeSyntax',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1beta2/documents:analyzeSyntax",
+                    "body": "*",
+                },
             ]
             request, metadata = self._interceptor.pre_analyze_syntax(request, metadata)
             pb_request = language_service.AnalyzeSyntaxRequest.pb(request)
@@ -625,33 +706,35 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -670,19 +753,24 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
         def __hash__(self):
             return hash("AnnotateText")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: language_service.AnnotateTextRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> language_service.AnnotateTextResponse:
+        def __call__(
+            self,
+            request: language_service.AnnotateTextRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> language_service.AnnotateTextResponse:
             r"""Call the annotate text method over HTTP.
 
             Args:
@@ -705,11 +793,12 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/documents:annotateText',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1beta2/documents:annotateText",
+                    "body": "*",
+                },
             ]
             request, metadata = self._interceptor.pre_annotate_text(request, metadata)
             pb_request = language_service.AnnotateTextRequest.pb(request)
@@ -718,33 +807,35 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -763,19 +854,24 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
         def __hash__(self):
             return hash("ClassifyText")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: language_service.ClassifyTextRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> language_service.ClassifyTextResponse:
+        def __call__(
+            self,
+            request: language_service.ClassifyTextRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> language_service.ClassifyTextResponse:
             r"""Call the classify text method over HTTP.
 
             Args:
@@ -796,11 +892,12 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'post',
-                'uri': '/v1/documents:classifyText',
-                'body': '*',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "post",
+                    "uri": "/v1beta2/documents:classifyText",
+                    "body": "*",
+                },
             ]
             request, metadata = self._interceptor.pre_classify_text(request, metadata)
             pb_request = language_service.ClassifyTextRequest.pb(request)
@@ -809,33 +906,35 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -851,52 +950,67 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
             return resp
 
     @property
-    def analyze_entities(self) -> Callable[
-            [language_service.AnalyzeEntitiesRequest],
-            language_service.AnalyzeEntitiesResponse]:
+    def analyze_entities(
+        self,
+    ) -> Callable[
+        [language_service.AnalyzeEntitiesRequest],
+        language_service.AnalyzeEntitiesResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._AnalyzeEntities(self._session, self._host, self._interceptor) # type: ignore
+        return self._AnalyzeEntities(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def analyze_entity_sentiment(self) -> Callable[
-            [language_service.AnalyzeEntitySentimentRequest],
-            language_service.AnalyzeEntitySentimentResponse]:
+    def analyze_entity_sentiment(
+        self,
+    ) -> Callable[
+        [language_service.AnalyzeEntitySentimentRequest],
+        language_service.AnalyzeEntitySentimentResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._AnalyzeEntitySentiment(self._session, self._host, self._interceptor) # type: ignore
+        return self._AnalyzeEntitySentiment(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def analyze_sentiment(self) -> Callable[
-            [language_service.AnalyzeSentimentRequest],
-            language_service.AnalyzeSentimentResponse]:
+    def analyze_sentiment(
+        self,
+    ) -> Callable[
+        [language_service.AnalyzeSentimentRequest],
+        language_service.AnalyzeSentimentResponse,
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._AnalyzeSentiment(self._session, self._host, self._interceptor) # type: ignore
+        return self._AnalyzeSentiment(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def analyze_syntax(self) -> Callable[
-            [language_service.AnalyzeSyntaxRequest],
-            language_service.AnalyzeSyntaxResponse]:
+    def analyze_syntax(
+        self,
+    ) -> Callable[
+        [language_service.AnalyzeSyntaxRequest], language_service.AnalyzeSyntaxResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._AnalyzeSyntax(self._session, self._host, self._interceptor) # type: ignore
+        return self._AnalyzeSyntax(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def annotate_text(self) -> Callable[
-            [language_service.AnnotateTextRequest],
-            language_service.AnnotateTextResponse]:
+    def annotate_text(
+        self,
+    ) -> Callable[
+        [language_service.AnnotateTextRequest], language_service.AnnotateTextResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._AnnotateText(self._session, self._host, self._interceptor) # type: ignore
+        return self._AnnotateText(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def classify_text(self) -> Callable[
-            [language_service.ClassifyTextRequest],
-            language_service.ClassifyTextResponse]:
+    def classify_text(
+        self,
+    ) -> Callable[
+        [language_service.ClassifyTextRequest], language_service.ClassifyTextResponse
+    ]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ClassifyText(self._session, self._host, self._interceptor) # type: ignore
+        return self._ClassifyText(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
     def kind(self) -> str:
@@ -906,6 +1020,4 @@ class LanguageServiceRestTransport(LanguageServiceTransport):
         self._session.close()
 
 
-__all__=(
-    'LanguageServiceRestTransport',
-)
+__all__ = ("LanguageServiceRestTransport",)
